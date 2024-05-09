@@ -1,0 +1,22 @@
+<div class="h-screen w-screen relative">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="h-[540px] w-[400px] absolute top-[calc(50%-270px)] left-[calc(50%-200px)] border shadow-md rounded-lg p-6 flex flex-col justify-around items-centerb bg-slate-100">
+    <h1 class="text-center font-semibold text-3xl pt-1 pb-3">Login</h1>
+    <div class="flex flex-col w-full">
+      <label for="username">Username:</label>
+      <input id="username" class="mt-2 mb-1 p-2 border border-black rounded bg-slate-100" type="text" formControlName="username" required>
+      <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="text-red-400 text-sm">
+        <span *ngIf="username?.errors?.['required']">Vui lòng nhập username</span>
+        <span *ngIf="username?.errors?.['rightUsername'] && username?.value != ''">Sai username</span>
+      </div>
+    </div>
+    <div class="flex flex-col w-full">
+      <label for="password">Password:</label>
+      <input id="password" class="mt-2 mb-1 p-2 border border-black rounded bg-slate-100" type="password" formControlName="password" required>
+      <div *ngIf="pw?.invalid && (pw?.dirty || pw?.touched)" class="text-red-400 text-sm">
+        <span *ngIf="pw?.errors?.['required']">Vui lòng nhập username</span>
+        <span *ngIf="pw?.errors?.['rightPw'] && pw?.value != ''">Sai mật khẩu</span>
+      </div>
+    </div>
+    <button type="submit" class="py-1 px-2 rounded w-full border bg-blue-400 text-teal-50">Login</button>
+  </form>
+</div>
