@@ -1,0 +1,16 @@
+<div class="flex justify-center">
+  <div class="container p-6 grid grid-cols-3 gap-4">
+    <ng-container *ngFor="let toDo of toDoList">
+      <div class="relative h-[400px] shadow-lg rounded-3xl p-4 flex flex-col justify-around items-stretch transition-all duration-300 hover:scale-105 hover:shadow-xl" [ngClass]="toDo.completed ? 'bg-green-300' : 'bg-red-300'">
+        <div
+          class="absolute top-4 right-5 text-red-500 font-bold text-xl p-2 cursor-pointer transition-all duration-300 hover:rotate-180 hover:scale-105 hover:text-red-600"
+          (click)="handleDeleteToDo(toDo.id)">X</div>
+        <h2 class="text-xl font-medium">{{toDo.title}}</h2>
+        <div class="flex justify-between">
+          <button type="button" class="px-2 w-[120px] py-1 rounded-md bg-green-500 border shadow" (click)="handleChangeTaskStatus(toDo.id, true)">Complete</button>
+          <button type="button" class="px-2 w-[120px] py-1 rounded-md bg-red-500 border shadow" (click)="handleChangeTaskStatus(toDo.id, false)">Not Complete</button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

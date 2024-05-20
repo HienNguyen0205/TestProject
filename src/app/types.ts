@@ -28,8 +28,59 @@ export interface httpOptions {
 }
 
 export interface postDef {
+  authorName: String,
   userId: number,
   id: number,
   title: string,
   body: string
+}
+
+export interface userDef {
+  id: number,
+  name: string,
+  username: string,
+  email: string,
+}
+
+export interface getUserDataParams {
+  [param: string]:
+    | string
+    | number
+    | boolean
+    | ReadonlyArray<string | number | boolean>,
+  username: string;
+}
+
+export interface getUserTaskParams {
+  [param: string]:
+    | string
+    | number
+    | boolean
+    | ReadonlyArray<string | number | boolean>,
+  userId: number,
+}
+
+export interface changeTaskStatusParams {
+  [param: string]:
+    | string
+    | number
+    | boolean
+    | ReadonlyArray<string | number | boolean>,
+  id: number,
+}
+
+export interface changeTaskStatusBody {
+  completed: boolean,
+}
+
+export interface taskDef {
+  userId: number,
+  id: number,
+  title: string,
+  completed: boolean,
+}
+
+export interface msgDef {
+  message?: string;
+  data?: userDef;
 }

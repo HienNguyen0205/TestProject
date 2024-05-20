@@ -1,0 +1,22 @@
+<div class="h-screen w-screen relative">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="h-[540px] w-[400px] absolute top-[calc(50%-270px)] left-[calc(50%-200px)] border shadow-md rounded-lg p-6 flex flex-col justify-around items-centerb bg-slate-100">
+    <h1 class="text-center font-semibold text-3xl pt-1 pb-3">Login</h1>
+    <div class="flex flex-col w-full">
+      <label for="email">email:</label>
+      <input id="email" class="my-1 p-2 border border-blue-300 rounded" pInputText type="text" formControlName="email" required>
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="text-red-400">
+        <small *ngIf="email?.errors?.['required']">Vui lòng nhập email</small>
+        <small *ngIf="email?.errors?.['rightPw'] && email?.value != ''">Sai mật khẩu</small>
+      </div>
+    </div>
+    <div class="flex flex-col w-full">
+      <label for="password">Password:</label>
+      <input id="password" class="my-1 p-2 border border-blue-300 rounded" pInputText type="password" formControlName="password" required>
+      <div *ngIf="pw?.invalid && (pw?.dirty || pw?.touched)" class="text-red-400">
+        <small *ngIf="pw?.errors?.['required']">Vui lòng nhập mật khẩu</small>
+        <small *ngIf="pw?.errors?.['rightPw'] && pw?.value != ''">Sai mật khẩu</small>
+      </div>
+    </div>
+    <button type="submit" class="py-1 px-2 rounded w-full border bg-blue-400 text-teal-50">Login</button>
+  </form>
+</div>

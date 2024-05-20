@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { postDef } from '../types';
 
 @Injectable({
@@ -11,9 +11,9 @@ export class PostService {
     private apiService: ApiService
   ) {}
 
-  getAllUsers(url: string): Observable<postDef>{
-    return this.apiService.get(url, {
-      responseType: 'json'
-    })
+  getAllPosts(): Observable<postDef[]>{
+    return this.apiService.get('http://localhost:8080/api/post/getAllPost', {
+      responseType: 'json',
+    });
   }
 }

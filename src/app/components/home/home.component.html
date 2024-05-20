@@ -1,0 +1,12 @@
+<div class="flex justify-center">
+  <div class="container p-6 grid grid-cols-3 gap-4">
+    <ng-container *ngFor="let post of postList">
+      <div class="relative h-[400px] bg-teal-100 shadow-lg rounded-3xl p-4 flex flex-col justify-around items-stretch transition-all duration-300 hover:scale-105 hover:shadow-xl">
+        <div class="absolute top-4 right-5 select-none text-red-500 font-bold text-xl p-2 cursor-pointer transition-all duration-300 hover:rotate-180 hover:scale-105 hover:text-red-600" (click)="handleDeletePost(post.id)">X</div>
+        <h1 class="text-3xl font-semibold text-center">{{post.authorName}}</h1>
+        <h2 class="text-xl font-medium">{{post.title}}</h2>
+        <p class="indent-2 text-base">{{post.body}}</p>
+      </div>
+    </ng-container>
+  </div>
+</div>
